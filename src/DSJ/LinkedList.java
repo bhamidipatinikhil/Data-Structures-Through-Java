@@ -214,7 +214,25 @@ public class LinkedList {
 
     }
 
-    public static int find_ind_by_value(){return 0;}
+
+    public static int find_ind_by_value(int val){
+        LinkedListNode curr = root;
+        int curr_ind = 0;
+
+        while(curr != null && curr.num != val){
+            curr = curr.next;
+            curr_ind++;
+        }
+
+        if(curr==null){
+            System.out.println("Unfortunately, that value does not exist in the linked list");
+            return -1;
+        }
+        else{
+            return curr_ind;
+        }
+
+    }
 
     public static boolean index_safety(int ind){
         return ind <= (get_size() - 1) && ind >= 0;
